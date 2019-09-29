@@ -40,11 +40,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
-                    <h1><strong>CCC</strong> Return visit</h1>
+                    <h1><strong>Guangyuan WangLiangMian</strong> Waybill System</h1>
                     <div class="description">
                         <p>
 
-                            Appointment registration system <a href="#"><strong></strong></a>, Guangyuan Union Hospital !
+                            Information registration <a href="#"><strong></strong></a>, Guangyuan WangLiangMian !
                         </p>
                     </div>
                 </div>
