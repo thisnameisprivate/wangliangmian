@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="top-title">
-    <h1>Search Data Detail</h1>
+    <h1>王凉面___发货状态查询</h1>
 </div>
 <div class="content-list">
     <div class="layui-inline">
