@@ -19,6 +19,7 @@ CREATE TABLE visitlist (
   area varchar(30) default null,
   status varchar(30) default null,
   deliveryDate date default null,
+  waybill varchar(40) default null,
   currentTime timestamp null default current_timestamp
 );
 

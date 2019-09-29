@@ -55,6 +55,10 @@
                 <div class="layui-input-inline">
                     <input type="text" name="area" class="layui-input" placeholder="请输入地址~" autocomplete="off" lay-verify="required">
                 </div>
+                <label class="layui-form-label">运单号</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="waybill" class="layui-input" placeholder="请输入运单编号~" autocomplete="off">
+                </div>
             </div>
             <div class="layui-form-item">
                 <div class="layui-input-block">
@@ -98,6 +102,10 @@
                 <label class="layui-form-label">地区</label>
                 <div class="layui-input-inline">
                     <input type="text" name="area" class="layui-input" placeholder="请输入地址~" autocomplete="off" lay-verify="required">
+                </div>
+                <label class="layui-form-label">运单号</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="waybill" class="layui-input" placeholder="请输入运单编号~" autocomplete="off">
                 </div>
             </div>
             <div class="layui-form-item">
@@ -153,6 +161,7 @@
                 {field: 'contact', title: '联系方式'},
                 {field: 'area', title: '地区'},
                 {field: 'status', title: '发货状态', templet: (data) => { return data.status == '已发货' ? "<span style='color:orangered;'>"+ data.status +"</span>" : "<span style='color:#5FB878;'>"+ data.status +"</span>"}},
+                {field: 'waybill', title: '运单号', templet: (data) => { return data.waybill == '' ? "<span style='color: orangered;'>暂无信息</span>" : "<span style='color:#5FB878;'>"+ data.waybill +"</span>"}},
                 {field: 'deliveryDate', title: '发货日期'},
                 {field: 'currentTime', title: '登记时间'},
                 {fixed: 'right', title: '操作', align: 'left', toolbar: '#bar', widht:'10%'}
@@ -280,6 +289,7 @@
                 'contact': data.contact,
                 'area': data.area,
                 'status': data.status,
+                'waybill': data.waybill,
                 'deliveryDate': data.deliveryDate,
             });
         }

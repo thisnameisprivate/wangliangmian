@@ -53,6 +53,10 @@
                 <div class="layui-input-inline">
                     <input type="text" name="area" class="layui-input" placeholder="请输入地址~" autocomplete="off" lay-verify="required">
                 </div>
+                <label class="layui-form-label">运单号</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="waybill" class="layui-input" placeholder="请输入运单编号~" autocomplete="off">
+                </div>
             </div>
             <div class="layui-form-item">
                 <div class="layui-input-block">
@@ -95,10 +99,14 @@
                 <div class="layui-input-inline">
                     <input type="text" name="area" class="layui-input" placeholder="请输入地址~" autocomplete="off" lay-verify="required">
                 </div>
+                <label class="layui-form-label">运单号</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="waybill" class="layui-input" placeholder="请输入运单编号~" autocomplete="off">
+                </div>
             </div>
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <button class="layui-btn" lay-submit="" lay-filter="fromedit">立即提交</button>
+                    <button class="layui-btn" lay-submit="" lay-filter="fromadd">立即提交</button>
                     <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                 </div>
             </div>
@@ -149,6 +157,7 @@
                 {field: 'contact', title: '联系方式'},
                 {field: 'area', title: '地区'},
                 {field: 'status', title: '发货状态', templet: (data) => { return data.status == '已发货' ? "<span style='color:orangered;'>"+ data.status +"</span>" : "<span style='color:#5FB878;'>"+ data.status +"</span>"}},
+                {field: 'waybill', title: '运单号', templet: (data) => { return data.waybill == '' ? "<span style='color: orangered;'>暂无信息</span>" : "<span style='color:#5FB878;'>"+ data.waybill +"</span>"}},
                 {field: 'deliveryDate', title: '发货日期'},
                 {field: 'currentTime', title: '登记时间'},
                 {fixed: 'right', title: '操作', align: 'left', toolbar: '#bar', widht:'10%'}
@@ -231,7 +240,7 @@
                     }
                 });
                 form.render();
-                form.on('submit(formadd)', data => {
+                form.on('submit(fromadd)', data => {
                     var client = new XMLHttpRequest();
                     client.open('GET', "<?php echo U('Admin/Index/visitAddData/data/"+ JSON.stringify(data.field) +"');?>");
                     client.send();
@@ -246,7 +255,6 @@
                             }
                         }
                     }
-                    return false;
                 })
             }
         });
@@ -272,12 +280,12 @@
         };
         /* 渲染form表单 */
         setFormValue = data => {
-            console.log(data);
             form.val('fromedit', {
                 'name': data.name,
                 'contact': data.contact,
                 'area': data.area,
                 'status': data.status,
+                'waybill': data.waybill,
                 'deliveryDate': data.deliveryDate,
             });
         }

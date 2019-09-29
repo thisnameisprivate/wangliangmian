@@ -44,9 +44,9 @@ class IndexController extends Controller {
                 $visitListData = $visitList->where($username)->limit(($page = $_GET['page'] - 1) * $_GET['limit'], $_GET['limit'])->order('id desc')->select();
             }
             if (is_numeric($_GET['search'])) {
-                $phone['phone'] = array('like', "%{$_GET['search']}%");
-                $visitListCount = $visitList->where($phone)->count();
-                $visitListData = $visitList->where($phone)->limit(($page = $_GET['page'] - 1) * $_GET['limit'], $_GET['limit'])->order('id dsec')->select();
+                $contact['contact'] = array('like', "%{$_GET['search']}%");
+                $visitListCount = $visitList->where($contact)->count();
+                $visitListData = $visitList->where($contact)->limit(($page = $_GET['page'] - 1) * $_GET['limit'], $_GET['limit'])->order('id dsec')->select();
             }
         }
         $this->arrayRecursive($visitListData, 'urldecode', true);
@@ -55,12 +55,6 @@ class IndexController extends Controller {
         $visitListData = "{\"code\":0, \"msg\":\"\", \"count\": $visitListCount, \"data\": $jsonVisitData}";
         $this->ajaxReturn(str_replace(array("\n", "\r"), '\n', $visitListData), 'eval');
     }
-    /**
-     * 清除数组中的中文乱码
-     * @param $array
-     * @param $function
-     * @param bool $apply_to_keys_also
-     */
     private function arrayRecursive (&$array, $function, $apply_to_keys_also = false) {
         static $recursive_counter = 0;
         if (++ $recursive_counter > 1000) {
