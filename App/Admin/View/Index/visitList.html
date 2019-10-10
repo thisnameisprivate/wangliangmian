@@ -139,7 +139,7 @@
         var $ = layui.jquery;
         var userAcc = JSON.parse(localStorage.getItem('userAcc'));
         var tableIns = table.render({
-            text: { none: '暂无相关数据' },
+            text: { none: 'not found data~' },
             initSort: {
                 field: 'id',
                 type: 'desc'
@@ -161,7 +161,7 @@
                 {field: 'contact', title: '联系方式'},
                 {field: 'area', title: '地区'},
                 {field: 'status', title: '发货状态', templet: (data) => { return data.status == '已发货' ? "<span style='color:orangered;'>"+ data.status +"</span>" : "<span style='color:#5FB878;'>"+ data.status +"</span>"}},
-                {field: 'waybill', title: '运单号', templet: (data) => { return data.waybill == '' ? "<span style='color: orangered;'>暂无信息</span>" : "<span style='color:#5FB878;'>"+ data.waybill +"</span>"}},
+                {field: 'waybill', title: '运单号', templet: (data) => { return data.waybill == '' ? "<span style='color: orangered;'>暂无信息</span>" : "<span> style='color:#5FB878;'>"+ data.waybill +"</span>"}},
                 {field: 'deliveryDate', title: '发货日期'},
                 {field: 'currentTime', title: '登记时间'},
                 {fixed: 'right', title: '操作', align: 'left', toolbar: '#bar', widht:'10%'}
